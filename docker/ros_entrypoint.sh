@@ -10,6 +10,6 @@ source "/opt/ros/melodic/setup.bash"
 
 echo "================Docker Env Ready================"
 
-cd /home/catkin_ws
+cd /root/catkin_ws
 
 exec "$@"
