@@ -1,0 +1,9 @@
+[submodule "ndt_omp"]
+	path = ndt_omp
+	url = https://github.com/koide3/ndt_omp
+[submodule "hdl_localization"]
+	path = hdl_localization
+	url = https://github.com/koide3/hdl_localization
+[submodule "hdl_global_localization"]
+	path = hdl_global_localization
+	url = https://github.com/koide3/hdl_global_localization
