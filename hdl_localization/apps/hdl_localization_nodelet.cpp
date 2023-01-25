@@ -1,6 +1,7 @@
 #include <mutex>
 #include <memory>
 #include <iostream>
+#include <time.h>
 
 #include <ros/ros.h>
 #include <pcl_ros/point_cloud.h>
@@ -53,6 +54,7 @@ public:
     robot_odom_frame_id = private_nh.param<std::string>("robot_odom_frame_id", "robot_odom");
     odom_child_frame_id = private_nh.param<std::string>("odom_child_frame_id", "base_link");
 
+    verbose = private_nh.param<bool>("verbose", false);
     use_imu = private_nh.param<bool>("use_imu", true);
     invert_acc = private_nh.param<bool>("invert_acc", false);
     invert_gyro = private_nh.param<bool>("invert_gyro", false);
@@ -225,12 +227,16 @@ private:
       delta_estimater->add_frame(filtered);
     }
 
+    // check predict time
+    if(verbose) {start = clock();}
+    
     Eigen::Matrix4f before = pose_estimator->matrix();
 
     // predict
     if(!use_imu) {
-      pose_estimator->predict(stamp);
-    } else {
+      pose_estimator->predict(stamp); // imu가 없으면 stamp값만 이용하여 predict한다.
+    } 
+    else {
       std::lock_guard<std::mutex> lock(imu_data_mutex);
       auto imu_iter = imu_data.begin();
       for(imu_iter; imu_iter != imu_data.end(); imu_iter++) {
@@ -242,6 +248,7 @@ private:
         double acc_sign = invert_acc ? -1.0 : 1.0;
         double gyro_sign = invert_gyro ? -1.0 : 1.0;
         pose_estimator->predict((*imu_iter)->header.stamp, acc_sign * Eigen::Vector3f(acc.x, acc.y, acc.z), gyro_sign * Eigen::Vector3f(gyro.x, gyro.y, gyro.z));
+        // imu가 있으면 imu값을 이용하여 predict한다.
       }
       imu_data.erase(imu_data.begin(), imu_iter);
     }
@@ -263,7 +270,12 @@ private:
         pose_estimator->predict_odom(delta.cast<float>().matrix());
       }
     }
-
+    
+    if(verbose){end = clock(); NODELET_INFO("predict time : %f", (double)(end - start) / CLOCKS_PER_SEC);}
+    
+    // check correct time
+    if(verbose){start = clock();}
+  
     // correct
     auto aligned = pose_estimator->correct(stamp, filtered);
 
@@ -278,6 +290,9 @@ private:
     }
 
     publish_odometry(points_msg->header.stamp, pose_estimator->matrix());
+
+    if(verbose) {end = clock(); NODELET_INFO("correct time : %f", (double)(end - start) / CLOCKS_PER_SEC);}
+    
   }
 
   /**
@@ -504,6 +519,7 @@ private:
   std::string robot_odom_frame_id;
   std::string odom_child_frame_id;
 
+  bool verbose;
   bool use_imu;
   bool invert_acc;
   bool invert_gyro;
@@ -542,6 +558,10 @@ private:
   ros::ServiceServer relocalize_server;
   ros::ServiceClient set_global_map_service;
   ros::ServiceClient query_global_localization_service;
+
+  // Timer
+  clock_t start, end;
+  double time_result;
 };
 }
 

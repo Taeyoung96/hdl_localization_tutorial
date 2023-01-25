@@ -8,6 +8,7 @@
   <arg name="odom_child_frame_id" default="velodyne" />
 
   <!-- optional arguments -->
+  <arg name="verbose" default="false" /> <!-- if true, print predict and correct time -->
   <arg name="use_imu" default="true" />
   <arg name="invert_imu_acc" default="false" />
   <arg name="invert_imu_gyro" default="false" />
@@ -37,6 +38,10 @@
     <node pkg="nodelet" type="nodelet" name="hdl_localization_nodelet" args="load hdl_localization/HdlLocalizationNodelet $(arg nodelet_manager)">
       <remap from="/velodyne_points" to="$(arg points_topic)" />
       <remap from="/gpsimu_driver/imu_data" to="$(arg imu_topic)" />
+
+      <!-- verbose -->
+      <param name="verbose" value="$(arg verbose)" />
+
       <!-- odometry frame_id -->
       <param name="odom_child_frame_id" value="$(arg odom_child_frame_id)" />
       <!-- imu settings -->
@@ -45,9 +50,11 @@
       <param name="invert_acc" value="$(arg invert_imu_acc)" />
       <param name="invert_gyro" value="$(arg invert_imu_gyro)" />
       <param name="cool_time_duration" value="2.0" />
+      
       <!-- robot odometry-based prediction -->
       <param name="enable_robot_odometry_prediction" value="$(arg enable_robot_odometry_prediction)" />
       <param name="robot_odom_frame_id" value="$(arg robot_odom_frame_id)" />
+      
       <!-- ndt settings -->
       <!-- available reg_methods: NDT_OMP, NDT_CUDA_P2D, NDT_CUDA_D2D-->
       <param name="reg_method" value="NDT_OMP" />
