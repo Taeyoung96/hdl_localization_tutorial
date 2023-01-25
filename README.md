@@ -23,7 +23,8 @@ docker build -t hdl_localization .
 
 When you have finished it, use the command `docker images` and you can see the output below.  
 ```
-
+REPOSITORY                         TAG                       IMAGE ID         CREATED          SIZE
+hdl_localization                   latest                    338f71fd2fb3     12 seconds ago   2.69GB
 ```
 
 **3. Make docker container**  
