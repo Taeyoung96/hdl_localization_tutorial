@@ -2,6 +2,11 @@
 
 Step-by-step tutorial to facilitate hdl localization package with docker! :whale: 
 
+## Result  
+
+https://user-images.githubusercontent.com/41863759/214481122-41bbd63f-fd32-49b6-85af-a270349f7cf6.mp4
+
+
 ## Requirement  
 - [Docker](https://www.docker.com/)  
 - [NVIDIA docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
