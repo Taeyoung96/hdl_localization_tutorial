@@ -1,4 +1,4 @@
-# hdl_localization_collection
+# hdl_localization_tutorial
 
 Step-by-step tutorial to facilitate hdl localization package.
 
