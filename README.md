@@ -8,7 +8,7 @@
 
 1. Clone this repository. (Remember the path that you downloaded this repository) 
 ```
-git clone --recursive https://github.com/Taeyoung96/HDL_localization_collection.git
+git clone --recursive https://github.com/Taeyoung96/hdl_localization_collection.git
 ```
 
 2. Enter the `/docker` folder and make a docker image.  
