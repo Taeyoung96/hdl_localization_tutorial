@@ -10,24 +10,15 @@ RUN apt-get update && apt-get install --no-install-recommends -y wget nano git b
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Fast-GICP (https://github.com/SMRT-AIST/fast_gicp)
-WORKDIR /root/
-RUN git clone https://github.com/SMRT-AIST/fast_gicp --recursive
-RUN mkdir -p /root/fast_gicp/build
-WORKDIR /root/fast_gicp/build
-RUN cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-RUN make -j4
-RUN make install
 
 RUN mkdir -p /root/catkin_ws/src
 WORKDIR /root/catkin_ws/src
 RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; catkin_init_workspace'
  
-WORKDIR /root/catkin_ws
-RUN /bin/bash -c '. /opt/ros/melodic/setup.bash; catkin_make -DENABLE_TEASER=OFF'
-RUN sed -i "6i source \"/root/catkin_ws/devel/setup.bash\"" /ros_entrypoint.sh
 
-WORKDIR /
-
+# Load ROS environment at each run
+COPY ./ros_entrypoint.sh /
+RUN chmod 755 /ros_entrypoint.sh
 ENTRYPOINT ["/ros_entrypoint.sh"]
+
 CMD ["bash"]
