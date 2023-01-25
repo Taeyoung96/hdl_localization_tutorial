@@ -1,3 +1,6 @@
 [submodule "ndt_omp"]
 	path = ndt_omp
 	url = https://github.com/koide3/ndt_omp
+[submodule "fast_gicp"]
+	path = fast_gicp
+	url = https://github.com/SMRT-AIST/fast_gicp
