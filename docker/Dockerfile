@@ -15,7 +15,7 @@ WORKDIR /root/
 RUN git clone https://github.com/SMRT-AIST/fast_gicp --recursive
 RUN mkdir -p /root/fast_gicp/build
 WORKDIR /root/fast_gicp/build
-RUN cmake .. -DCMAKE_BUILD_TYPE=Release
+RUN cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 RUN make -j4
 RUN make install
 
