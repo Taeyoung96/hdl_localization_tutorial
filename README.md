@@ -1,6 +1,6 @@
 # hdl_localization_collection
 
-Step-by-step tutorial to facilitate hdl localization.
+Step-by-step tutorial to facilitate hdl localization package.
 
 ## Requirement  
 - [Docker](https://www.docker.com/)  
@@ -58,11 +58,41 @@ If you have successfully created the docker container, the terminal output will 
 
 ```
 ================Docker Env Ready================
-root@taeyoung-cilab:/home/catkin_ws#
+root@taeyoung-cilab:/root/catkin_ws#
 ```
 
 **4. Build hdl localization package and run it!**  
 
+Inside the docker container, run the build and run the package.  
+```
+catkin_make
+```
+```
+source devel/setup.bash
+```
+```
+rosparam set use_sim_time true
+roslaunch hdl_localization hdl_localization.launch
+```
+
+Open another terminal and enter the docker container.  
+```
+docker exec -it -w /root/catkin_ws/ hdl_localization /bin/bash
+```
+Set up the environment on another terminal.  
+```
+source /opt/ros/melodic/setup.bash
+```
+Run rviz.  
+```
+roscd hdl_localization/rviz
+rviz -d hdl_localization.rviz
+```
+
+Now, you could enjoy hdl_localization package! :smile:
 
 
 ## Acknowldegement
+
+Thanks to [koide3](https://github.com/koide3) for releasing the hdl_localization ros package.  
+This repository follows the license of [hdl_localization](https://github.com/koide3/hdl_localization).  
