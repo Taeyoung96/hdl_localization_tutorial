@@ -1,4 +1,4 @@
-# HDL_localization_collection
+# hdl_localization_collection
 
 ## Requirement  
 - [Docker](https://www.docker.com/)  
