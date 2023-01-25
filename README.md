@@ -1,6 +1,6 @@
 # hdl_localization_tutorial
 
-Step-by-step tutorial to facilitate hdl localization package.
+Step-by-step tutorial to facilitate hdl localization package with docker! :whale: 
 
 ## Requirement  
 - [Docker](https://www.docker.com/)  
