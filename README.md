@@ -11,6 +11,14 @@ https://user-images.githubusercontent.com/41863759/214481122-41bbd63f-fd32-49b6-
 - [Docker](https://www.docker.com/)  
 - [NVIDIA docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
+## Tutorial Video  
+
+If you're unfamiliar with docker, follow the tutorial video and run it step by step.  
+
+<p align='center'>
+    <img src="https://user-images.githubusercontent.com/41863759/214555845-789e919b-cc01-4d9c-a326-3e387ac258c1.png" alt="https://youtu.be/w_BRRA7VN7Q" width="500"/>
+</p>
+
 ## How to start  
 
 **1. Clone this repository. (Remember the path that you downloaded this repository)** 
