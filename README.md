@@ -15,7 +15,7 @@ git clone --recursive https://github.com/Taeyoung96/hdl_localization_tutorial.gi
 
 **2. Enter the `/docker` folder and make a docker image.**  
 ```
-cd docker
+cd hdl_localization_tutorial/docker
 ```
 ```
 docker build -t hdl_localization .
