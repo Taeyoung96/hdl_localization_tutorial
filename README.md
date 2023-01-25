@@ -96,6 +96,9 @@ rviz -d hdl_localization.rviz
 Now, you could enjoy hdl_localization package! :smile:
 
 
+## To do list 
+- [ ] Support python3 & python script in Dockerfile.  
+
 ## Acknowldegement
 
 Thanks to [koide3](https://github.com/koide3) for releasing the hdl_localization ros package.  
