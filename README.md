@@ -15,7 +15,7 @@ git clone --recursive https://github.com/Taeyoung96/hdl_localization_tutorial.gi
 
 **2. Enter the `/docker` folder and make a docker image.**  
 ```
-cd docker
+cd hdl_localization_tutorial/docker
 ```
 ```
 docker build -t hdl_localization .
@@ -23,7 +23,8 @@ docker build -t hdl_localization .
 
 When you have finished it, use the command `docker images` and you can see the output below.  
 ```
-
+REPOSITORY                   TAG                       IMAGE ID         CREATED          SIZE
+hdl_localization             latest                    338f71fd2fb3     12 seconds ago   2.69GB
 ```
 
 **3. Make docker container**  
@@ -42,14 +43,12 @@ After that, make your own container with the command below.
 nvidia-docker run --privileged -it \
            -e NVIDIA_DRIVER_CAPABILITIES=all \
            -e NVIDIA_VISIBLE_DEVICES=all \
-           --volume=${hdl_localization_repo_root}:/root/catkin_ws/src \
            --volume=/tmp/.X11-unix:/tmp/.X11-unix:rw \
            --net=host \
            --ipc=host \
            --shm-size=1gb \
-           --name=${docker container name} \
            --env="DISPLAY=$DISPLAY" \
-           ${docker image} /bin/bash
+           --name=${docker container name} --volume=${hdl_localization_repo_root}:/root/catkin_ws/src ${docker image} /bin/bash
 ```
 
 **:warning: You should change {hdl_localization_repo_root}, {docker container name}, {docker image} to suit your environment.**
@@ -85,7 +84,7 @@ source /opt/ros/melodic/setup.bash
 ```
 Run rviz.  
 ```
-roscd hdl_localization/rviz
+cd src/hdl_localization/rviz
 rviz -d hdl_localization.rviz
 ```
 
