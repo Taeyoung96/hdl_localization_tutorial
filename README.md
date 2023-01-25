@@ -84,7 +84,7 @@ source /opt/ros/melodic/setup.bash
 ```
 Run rviz.  
 ```
-roscd hdl_localization/rviz
+cd src/hdl_localization/rviz
 rviz -d hdl_localization.rviz
 ```
 
