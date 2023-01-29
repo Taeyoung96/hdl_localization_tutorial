@@ -4,3 +4,9 @@
 [submodule "fast_gicp"]
 	path = fast_gicp
 	url = https://github.com/SMRT-AIST/fast_gicp
+[submodule "hdl_localization"]
+	path = hdl_localization
+	url = https://github.com/koide3/hdl_localization.git
+[submodule "hdl_global_localization"]
+	path = hdl_global_localization
+	url = https://github.com/koide3/hdl_global_localization.git
