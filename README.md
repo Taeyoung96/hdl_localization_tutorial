@@ -87,6 +87,8 @@ source devel/setup.bash
 ```
 ```
 rosparam set use_sim_time true
+```
+```
 roslaunch hdl_localization hdl_localization.launch
 ```
 
@@ -101,6 +103,8 @@ source /opt/ros/melodic/setup.bash
 Run rviz.  
 ```
 cd src/hdl_localization/rviz
+```
+```
 rviz -d hdl_localization.rviz
 ```
 
