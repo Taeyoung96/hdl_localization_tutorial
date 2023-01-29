@@ -72,6 +72,14 @@ root@taeyoung-cilab:/root/catkin_ws#
 
 **4. Build hdl localization package and run it!**  
 
+Four terminal windows are required.  
+Two enter the docker container, and the other two are local terminals.  
+
+Please run the roscore on one local terminal.  
+```
+roscore
+```
+
 Inside the docker container, run the build and run the package.  
 ```
 catkin_make
@@ -100,6 +108,11 @@ cd src/hdl_localization/rviz
 ```
 ```
 rviz -d hdl_localization.rviz
+```
+
+Run the sample bag file at the last local terminal.  
+```
+rosbag play hdl_400.bag  
 ```
 
 Now, you could enjoy hdl_localization package! :smile:
