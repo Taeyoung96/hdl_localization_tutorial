@@ -10,6 +10,7 @@ https://user-images.githubusercontent.com/41863759/214481122-41bbd63f-fd32-49b6-
 ## Requirement  
 - [Docker](https://www.docker.com/)  
 - [NVIDIA docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
+- [Sample Bag file](https://github.com/koide3/hdl_localization#example) : hdl_400.bag
 
 ## Tutorial Video  
 
