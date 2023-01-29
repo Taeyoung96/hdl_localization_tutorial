@@ -4,8 +4,6 @@ Step-by-step tutorial to facilitate hdl localization package with docker! :whale
 
 ## Result  
 
-https://user-images.githubusercontent.com/41863759/214481122-41bbd63f-fd32-49b6-85af-a270349f7cf6.mp4
-
 
 ## Requirement  
 - [Docker](https://www.docker.com/)  
@@ -16,11 +14,6 @@ https://user-images.githubusercontent.com/41863759/214481122-41bbd63f-fd32-49b6-
 
 If you're unfamiliar with docker, follow the tutorial video and run it step by step.  
 
-<p align='center'>
-  <a href="https://youtu.be/w_BRRA7VN7Q">
-    <img src="https://user-images.githubusercontent.com/41863759/214555845-789e919b-cc01-4d9c-a326-3e387ac258c1.png" alt="Image Description" width="500"/>
-  </a>
-</p>
 
 
 ## How to start  
