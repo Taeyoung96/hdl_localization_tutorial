@@ -15,7 +15,9 @@ https://user-images.githubusercontent.com/41863759/215329274-76ee7d6b-df9c-4699-
 
 If you're unfamiliar with docker, follow the tutorial video and run it step by step.  
 
-
+<p align='center'>
+    <img src="https://user-images.githubusercontent.com/41863759/215341195-f6240706-2ed0-4167-94cc-ad8a13070d85.png" alt="https://youtu.be/pxeU6HH5Gww" width="600"/>
+</p>
 
 ## How to start  
 
