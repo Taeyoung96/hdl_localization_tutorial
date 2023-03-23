@@ -1,4 +1,4 @@
-# Dockerfile for hdl_localization + VINS-MONO
+# Dockerfile for hdl_localization
 # Author : Taeyoung Kim (https://github.com/Taeyoung96)
 
 FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu18.04
